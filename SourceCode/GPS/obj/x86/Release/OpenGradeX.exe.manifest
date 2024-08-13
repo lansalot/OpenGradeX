@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenGradeX.exe" size="1528792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenGradeX.exe" size="1539072">
       <assemblyIdentity name="OpenGradeX" version="1.4.3.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uWDDYu2jLJ/5aCR4Ey/ekghkBrM6SDGm8CSBIsPOHLs=</dsig:DigestValue>
+        <dsig:DigestValue>qS5/LaEkEBjFg+Vo7GIFF/TvzWW74PKqOCHvSwBZQec=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -114,22 +114,22 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="aChangeLog.txt" size="42">
+  <file name="aChangeLog.txt" size="46">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>iISYLm+6wpHLpZ0QTTyeWfrIeqivwmMSF77Haqwq3Vk=</dsig:DigestValue>
+      <dsig:DigestValue>aohUMESDr20dHkF8D0FyG/eXPTv8pgJqf5NC3NtIC88=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ALicense.txt" size="37032">
+  <file name="ALicense.txt" size="37763">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>VglUiXER329ker7jhDBBUpZJB4VmcdSnyw5zSbE6xwQ=</dsig:DigestValue>
+      <dsig:DigestValue>xoxC4YvD7XILHOJG3+0D0j1FSfAIhEswoT05Uo3t9ok=</dsig:DigestValue>
     </hash>
   </file>
   <file name="AppIcon.ico" size="370070">
