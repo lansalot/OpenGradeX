@@ -712,7 +712,7 @@ namespace OpenGrade
             int drawPts;
             int ptCnt = ptList.Count;
             double minDeltaHt = 0;
-            double angle = -mf.vehicle.minSlope * 180;
+            double angle = -mf.vehicle.minSlope * 28;   // was 180
             int startPt = 0;
             int endPt = -1;
             int lowestPt = 0;

@@ -105,7 +105,7 @@
             this.tboxHostName.Location = new System.Drawing.Point(65, 79);
             this.tboxHostName.Name = "tboxHostName";
             this.tboxHostName.ReadOnly = true;
-            this.tboxHostName.Size = new System.Drawing.Size(157, 30);
+            this.tboxHostName.Size = new System.Drawing.Size(157, 36);
             this.tboxHostName.TabIndex = 86;
             this.tboxHostName.Text = "192.168.1.255";
             // 
@@ -116,7 +116,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label14.Location = new System.Drawing.Point(2, 81);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 23);
+            this.label14.Size = new System.Drawing.Size(61, 29);
             this.label14.TabIndex = 85;
             this.label14.Text = "Host";
             // 
@@ -127,7 +127,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(7, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 23);
+            this.label1.Size = new System.Drawing.Size(167, 29);
             this.label1.TabIndex = 84;
             this.label1.Text = "This Computer";
             // 
@@ -139,7 +139,7 @@
             this.tboxThisIP.Location = new System.Drawing.Point(62, 120);
             this.tboxThisIP.Name = "tboxThisIP";
             this.tboxThisIP.ReadOnly = true;
-            this.tboxThisIP.Size = new System.Drawing.Size(157, 30);
+            this.tboxThisIP.Size = new System.Drawing.Size(157, 36);
             this.tboxThisIP.TabIndex = 73;
             this.tboxThisIP.Text = "192.168.1.255";
             // 
@@ -160,7 +160,7 @@
             0,
             0});
             this.nudThisPort.Name = "nudThisPort";
-            this.nudThisPort.Size = new System.Drawing.Size(96, 30);
+            this.nudThisPort.Size = new System.Drawing.Size(96, 36);
             this.nudThisPort.TabIndex = 74;
             this.nudThisPort.Value = new decimal(new int[] {
             9999,
@@ -175,7 +175,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label9.Location = new System.Drawing.Point(7, 165);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 23);
+            this.label9.Size = new System.Drawing.Size(56, 29);
             this.label9.TabIndex = 75;
             this.label9.Text = "Port";
             // 
@@ -186,7 +186,7 @@
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label10.Location = new System.Drawing.Point(22, 124);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(27, 23);
+            this.label10.Size = new System.Drawing.Size(35, 29);
             this.label10.TabIndex = 76;
             this.label10.Text = "IP";
             // 
@@ -196,7 +196,7 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(171, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 19);
+            this.label2.Size = new System.Drawing.Size(54, 24);
             this.label2.TabIndex = 78;
             this.label2.Text = "9999";
             // 
@@ -207,7 +207,7 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(5, 8);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(576, 23);
+            this.label7.Size = new System.Drawing.Size(734, 29);
             this.label7.TabIndex = 70;
             this.label7.Text = "** You must RESTART OpenGradeX for any changes to take effect!\r\n";
             // 
@@ -249,7 +249,7 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(179, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 19);
+            this.label3.Size = new System.Drawing.Size(54, 24);
             this.label3.TabIndex = 84;
             this.label3.Text = "8888";
             // 
@@ -260,7 +260,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Location = new System.Drawing.Point(8, 38);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 23);
+            this.label4.Size = new System.Drawing.Size(184, 29);
             this.label4.TabIndex = 83;
             this.label4.Text = "Antenna Module";
             // 
@@ -271,7 +271,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Location = new System.Drawing.Point(30, 78);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 23);
+            this.label5.Size = new System.Drawing.Size(35, 29);
             this.label5.TabIndex = 82;
             this.label5.Text = "IP";
             // 
@@ -282,7 +282,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(15, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 23);
+            this.label6.Size = new System.Drawing.Size(56, 29);
             this.label6.TabIndex = 81;
             this.label6.Text = "Port";
             // 
@@ -303,7 +303,7 @@
             0,
             0});
             this.nudAutoSteerPort.Name = "nudAutoSteerPort";
-            this.nudAutoSteerPort.Size = new System.Drawing.Size(96, 30);
+            this.nudAutoSteerPort.Size = new System.Drawing.Size(96, 36);
             this.nudAutoSteerPort.TabIndex = 80;
             this.nudAutoSteerPort.Value = new decimal(new int[] {
             8888,
@@ -318,7 +318,7 @@
             this.tboxAutoSteerIP.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.tboxAutoSteerIP.Location = new System.Drawing.Point(70, 74);
             this.tboxAutoSteerIP.Name = "tboxAutoSteerIP";
-            this.tboxAutoSteerIP.Size = new System.Drawing.Size(167, 30);
+            this.tboxAutoSteerIP.Size = new System.Drawing.Size(167, 36);
             this.tboxAutoSteerIP.TabIndex = 79;
             this.tboxAutoSteerIP.Text = "192.168.1.155";
             this.tboxAutoSteerIP.Validating += new System.ComponentModel.CancelEventHandler(this.tboxAutoSteerIP_Validating);
@@ -329,7 +329,7 @@
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(179, 283);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 19);
+            this.label8.Size = new System.Drawing.Size(54, 24);
             this.label8.TabIndex = 90;
             this.label8.Text = "7777";
             // 
@@ -340,7 +340,7 @@
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label11.Location = new System.Drawing.Point(8, 201);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(193, 23);
+            this.label11.Size = new System.Drawing.Size(244, 29);
             this.label11.TabIndex = 89;
             this.label11.Text = "Grade Control Module";
             // 
@@ -351,7 +351,7 @@
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label12.Location = new System.Drawing.Point(30, 238);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(27, 23);
+            this.label12.Size = new System.Drawing.Size(35, 29);
             this.label12.TabIndex = 88;
             this.label12.Text = "IP";
             // 
@@ -362,7 +362,7 @@
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label13.Location = new System.Drawing.Point(15, 281);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(43, 23);
+            this.label13.Size = new System.Drawing.Size(56, 29);
             this.label13.TabIndex = 87;
             this.label13.Text = "Port";
             // 
@@ -383,7 +383,7 @@
             0,
             0});
             this.nudGradeControlPort.Name = "nudGradeControlPort";
-            this.nudGradeControlPort.Size = new System.Drawing.Size(96, 30);
+            this.nudGradeControlPort.Size = new System.Drawing.Size(96, 36);
             this.nudGradeControlPort.TabIndex = 86;
             this.nudGradeControlPort.Value = new decimal(new int[] {
             7777,
@@ -398,7 +398,7 @@
             this.tboxGradeControlIP.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.tboxGradeControlIP.Location = new System.Drawing.Point(70, 234);
             this.tboxGradeControlIP.Name = "tboxGradeControlIP";
-            this.tboxGradeControlIP.Size = new System.Drawing.Size(167, 30);
+            this.tboxGradeControlIP.Size = new System.Drawing.Size(167, 36);
             this.tboxGradeControlIP.TabIndex = 85;
             this.tboxGradeControlIP.Text = "192.168.1.255";
             // 
@@ -432,10 +432,10 @@
             this.choiceWiFi.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.choiceWiFi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.choiceWiFi.FormattingEnabled = true;
-            this.choiceWiFi.ItemHeight = 19;
+            this.choiceWiFi.ItemHeight = 24;
             this.choiceWiFi.Location = new System.Drawing.Point(11, 34);
             this.choiceWiFi.Name = "choiceWiFi";
-            this.choiceWiFi.Size = new System.Drawing.Size(226, 27);
+            this.choiceWiFi.Size = new System.Drawing.Size(226, 32);
             this.choiceWiFi.TabIndex = 92;
             this.choiceWiFi.Text = "Wifi Network";
             // 
@@ -446,7 +446,7 @@
             this.textBox1.ForeColor = System.Drawing.Color.Yellow;
             this.textBox1.Location = new System.Drawing.Point(2, 42);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 16);
+            this.textBox1.Size = new System.Drawing.Size(163, 20);
             this.textBox1.TabIndex = 93;
             this.textBox1.Text = "GradeControl";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -458,7 +458,7 @@
             this.textBox2.ForeColor = System.Drawing.Color.Yellow;
             this.textBox2.Location = new System.Drawing.Point(2, 65);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(163, 16);
+            this.textBox2.Size = new System.Drawing.Size(163, 20);
             this.textBox2.TabIndex = 94;
             this.textBox2.Text = "Antenna";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -471,7 +471,7 @@
             this.lblGCVersion.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.lblGCVersion.Location = new System.Drawing.Point(181, 40);
             this.lblGCVersion.Name = "lblGCVersion";
-            this.lblGCVersion.Size = new System.Drawing.Size(57, 17);
+            this.lblGCVersion.Size = new System.Drawing.Size(57, 22);
             this.lblGCVersion.TabIndex = 95;
             this.lblGCVersion.Text = "-------";
             this.lblGCVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -484,7 +484,7 @@
             this.lblAntennaVersion.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.lblAntennaVersion.Location = new System.Drawing.Point(181, 64);
             this.lblAntennaVersion.Name = "lblAntennaVersion";
-            this.lblAntennaVersion.Size = new System.Drawing.Size(57, 17);
+            this.lblAntennaVersion.Size = new System.Drawing.Size(57, 22);
             this.lblAntennaVersion.TabIndex = 96;
             this.lblAntennaVersion.Text = "-------";
             this.lblAntennaVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -511,7 +511,7 @@
             this.cbSavePassword.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSavePassword.Location = new System.Drawing.Point(11, 120);
             this.cbSavePassword.Name = "cbSavePassword";
-            this.cbSavePassword.Size = new System.Drawing.Size(125, 20);
+            this.cbSavePassword.Size = new System.Drawing.Size(161, 25);
             this.cbSavePassword.TabIndex = 100;
             this.cbSavePassword.Text = "Save Password";
             this.cbSavePassword.UseVisualStyleBackColor = true;
@@ -551,10 +551,10 @@
             this.choicePassword.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.choicePassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.choicePassword.FormattingEnabled = true;
-            this.choicePassword.ItemHeight = 19;
+            this.choicePassword.ItemHeight = 24;
             this.choicePassword.Location = new System.Drawing.Point(11, 84);
             this.choicePassword.Name = "choicePassword";
-            this.choicePassword.Size = new System.Drawing.Size(226, 27);
+            this.choicePassword.Size = new System.Drawing.Size(226, 32);
             this.choicePassword.TabIndex = 97;
             this.choicePassword.Text = "Wifi Password";
             // 
@@ -603,7 +603,7 @@
             // 
             // FormUDP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(603, 578);

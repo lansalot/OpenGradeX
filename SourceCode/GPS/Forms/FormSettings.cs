@@ -225,7 +225,7 @@ namespace OpenGrade
                 
 
             }
-            if (valveSelectChoice.Text == "DEERE")
+            else if (valveSelectChoice.Text == "DEERE")
             {
                 mf.mc.gradeControlSettings[mf.mc.gsValveType] = 1;
                 Properties.Settings.Default.set_ValveType = mf.mc.gradeControlSettings[mf.mc.gsValveType];
@@ -235,7 +235,7 @@ namespace OpenGrade
                
 
             }
-            if (valveSelectChoice.Text == "DANFOSS")
+            else if (valveSelectChoice.Text == "DANFOSS")
             {
                 mf.mc.gradeControlSettings[mf.mc.gsValveType] = 2;
                 Properties.Settings.Default.set_ValveType = mf.mc.gradeControlSettings[mf.mc.gsValveType];
@@ -256,90 +256,38 @@ namespace OpenGrade
         }
 
 
-        private void nudKp_ValueChanged_1(object sender, EventArgs e)
+        private void nudKp_ValueChanged(object sender, EventArgs e)
         {
             KpGain = (byte)nudKp.Value;            
             mf.mc.gradeControlSettings[mf.mc.gsKpGain] = KpGain;
             Properties.Settings.Default.set_KdGain = KdGain;
-            KpGain = Properties.Settings.Default.set_KpGain;
+            //KpGain = Properties.Settings.Default.set_KpGain;
             Properties.Settings.Default.Save();
             
         }
 
-        private void nudKi_ValueChanged_1(object sender, EventArgs e)
+        private void nudKi_ValueChanged(object sender, EventArgs e)
         {
             KiGain = (byte)nudKi.Value;            
             mf.mc.gradeControlSettings[mf.mc.gsKiGain] = KiGain;
             Properties.Settings.Default.set_KiGain = KiGain;
-            KiGain = Properties.Settings.Default.set_KiGain; /// 10
+            //KiGain = Properties.Settings.Default.set_KiGain; /// 10
             Properties.Settings.Default.Save();
             
 
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nudPlowHeight_ValueChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nudKd_ValueChanged_1(object sender, EventArgs e)
+        private void nudKd_ValueChanged(object sender, EventArgs e)
         {
             KdGain = (byte)nudKd.Value;            
             mf.mc.gradeControlSettings[mf.mc.gsKdGain] = KdGain;
             Properties.Settings.Default.set_KdGain = KdGain;
-            KdGain = Properties.Settings.Default.set_KdGain;
+            //KdGain = Properties.Settings.Default.set_KdGain;
             Properties.Settings.Default.Save();
             
 
         }
       
-
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-            extDeadband = (byte)nudExtDeadband.Value;
-            mf.mc.gradeControlSettings[mf.mc.gsExtDeadband] = extDeadband;
-            Properties.Settings.Default.set_ExtDeadband = extDeadband;            
-            extDeadband = Properties.Settings.Default.set_ExtDeadband;
-            Properties.Settings.Default.Save();
-            
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            retDeadband = (byte)nudRetDeadband.Value;
-            mf.mc.gradeControlSettings[mf.mc.gsRetDeadband] = retDeadband;
-            Properties.Settings.Default.set_RetDeadband = retDeadband;
-            Properties.Settings.Default.Save();
-           
-
-        }
-
 
         // Black Ace Industries
         private void nudPlowHeight_ValueChanged(object sender, EventArgs e)
@@ -361,7 +309,7 @@ namespace OpenGrade
         {
             maxDitchCut = (double)nudMaxDitchCut.Value * metImp2m;
         }        
-        private void nudKp_ValueChanged(object sender, EventArgs e)
+/*        private void nudKp_ValueChanged(object sender, EventArgs e)
         {
             KpGain = (byte)nudKp.Value;
             
@@ -376,19 +324,25 @@ namespace OpenGrade
         {
             KdGain = (byte)nudKd.Value;
             
-        }
+        }*/
 
         private void nudRetDeadband_ValueChanged(object sender, EventArgs e)
         {
             retDeadband = (byte)nudRetDeadband.Value;
-            
+            mf.mc.gradeControlSettings[mf.mc.gsRetDeadband] = retDeadband;
+            Properties.Settings.Default.set_RetDeadband = retDeadband;
+            Properties.Settings.Default.Save();
+
         }
-      
+
         private void nudExtDeadband_ValueChanged(object sender, EventArgs e)
         {
-            extDeadband = (byte)nudExtDeadband.Value;            
+            extDeadband = (byte)nudExtDeadband.Value;
+            mf.mc.gradeControlSettings[mf.mc.gsExtDeadband] = extDeadband;
+            Properties.Settings.Default.set_ExtDeadband = extDeadband;
+            Properties.Settings.Default.Save();
         }
-        
+
         private void nudMinSlope_ValueChanged(object sender, EventArgs e)
         {
             minSlope = (double)nudMinSlope.Value;

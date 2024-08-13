@@ -6,6 +6,8 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using System.Runtime.InteropServices;
 
 
 namespace OpenGrade
@@ -28,7 +30,7 @@ namespace OpenGrade
         public const int SYSTEM_HEADER = 10101;
         public const int WIFI_HEADER = 10102;
 
-        public string[] SSID = new string[] {"-", "-", "-", "-" , "-"};
+        public string[] SSID = new string[] { "-", "-", "-", "-", "-" };
         public string[] SSID_PASS = new string[25];
         public bool isWifidone = false;
         public string ssidPass = "";
@@ -51,9 +53,9 @@ namespace OpenGrade
         private static IPAddress openGradeIP = new IPAddress(openGrade);   //OpenGradeX Server
         private static IPAddress gradeControlIP = new IPAddress(gradeControl);   // GradeControl Module IP
         private static IPAddress antennaIP = new IPAddress(antennaModule);   // Antenna Module IP 
-        
+
         private bool isSendConnected;
-        public byte[] ipAddress = new byte[] {192, 168, 1, 110};
+        public byte[] ipAddress = new byte[] { 192, 168, 1, 110 };
 
         public IPEndPoint epAntennaModule;
         public IPEndPoint epGradeControl;
@@ -69,10 +71,10 @@ namespace OpenGrade
 
         public void SendUDPMessageNTRIP(int header, byte[] byteData)
         {
-            tboxNTRIPBuffer.Text = byteData.Length.ToString();  
-            
+            tboxNTRIPBuffer.Text = byteData.Length.ToString();
+
             try
-            { 
+            {
                 // Send packet to the zero
                 if (byteData.Length != 0)
 
@@ -115,24 +117,26 @@ namespace OpenGrade
 
         public void SendUDPMessage(int header, IPEndPoint _module, int secCase = 0)
         {
+            string msg = "blank";
 
-            string msg = "";
             if (isSendConnected)
             {
                 try
                 {
-                    switch(header)
+                    switch (header)
                     {
                         case DATA_HEADER:  // DATA
-                            
-                            msg = (header.ToString() + "," + mc.GradeControlData[mc.gcDeltaDir] + "," + mc.GradeControlData[mc.gcisAutoActive]
-                                        + "," + Math.Abs(cutDelta) + "\r\n");
+
+                            msg = header.ToString() + "," + mc.GradeControlData[mc.gcDeltaDir] + "," + mc.GradeControlData[mc.gcisAutoActive]
+                                        //+ "," + Math.Abs(cutDelta));// + "\r\n"; // the module code doesn't even use any decimal places
+                                        + "," + Math.Round(Math.Abs(cutDelta) * 10.0);//.ToString("0.0").Replace(".0", String.Empty);// + "\r\n"; // limit to 1 decimal place but if an even integer then drop ".0"
+                            //Console.WriteLine(msg);
                             break;
 
                         case SETTINGS_HEADER:  // SETTINGS
-    
+
                             msg = (header.ToString() + "," + mc.gradeControlSettings[mc.gsKpGain] + "," + mc.gradeControlSettings[mc.gsKiGain] + "," + mc.gradeControlSettings[mc.gsKdGain]
-                                + "," + mc.gradeControlSettings[mc.gsRetDeadband] + "," + mc.gradeControlSettings[mc.gsExtDeadband] + "," + mc.gradeControlSettings[mc.gsValveType]) + "\r\n"; 
+                                + "," + mc.gradeControlSettings[mc.gsRetDeadband] + "," + mc.gradeControlSettings[mc.gsExtDeadband] + "," + mc.gradeControlSettings[mc.gsValveType]);// + "\r\n";
 
                             break;
 
@@ -141,14 +145,14 @@ namespace OpenGrade
                             break;
 
                         case IMU_HEADER:
-                            
+
                             msg = (header.ToString() + "," + 0);
 
                             break;
 
                         case NTRIP_HEADER:
 
-                            msg = (header.ToString() + "," + 0);                          
+                            msg = (header.ToString() + "," + 0);
 
                             break;
 
@@ -160,13 +164,13 @@ namespace OpenGrade
                                     msg = (header.ToString() + "," + secCase);
                                     break;
                                 case 2:
-                                    msg = (header.ToString() + "," + secCase + "," + ssidName + "," + ssidPass );
+                                    msg = (header.ToString() + "," + secCase + "," + ssidName + "," + ssidPass);
                                     break;
                                 default:
                                     break;
 
                             }
-                            
+
                             break;
 
                         case RESET_HEADER:
@@ -175,80 +179,9 @@ namespace OpenGrade
 
                             break;
                         case SYSTEM_HEADER:
-                            
+
                             msg = (header.ToString() + "," + 1);
 
-
-                            break;
-
-
-                        default: 
-
-                            break;
-
-                    }
-
-                    // Get packet as byte array
-                    byte[] byteData = Encoding.ASCII.GetBytes(msg);
-
-                    if (byteData.Length != 0)
-
-                        // Send packet to the zero
-                        sendSocket.BeginSendTo(byteData, 0, byteData.Length, SocketFlags.None, _module, new AsyncCallback(SendData), null);
-                }
-                catch (Exception e)
-                {
-                    WriteErrorLog("Sending UDP Message" + e.ToString());
-
-                    //MessageBox.Show("Send Error: " + e.Message, "UDP Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-
-        public void SendUDPMessage(int header, IPEndPoint _module, string _msg)
-        {
-            string msg = "";
-            if (isSendConnected)
-            {
-                try
-                {
-                    switch (header)
-                    {
-                        case DATA_HEADER: 
-
-                            msg = (header.ToString() + _msg +  "\r\n");
-                            break;
-
-                        case SETTINGS_HEADER:  
-
-                            msg = (header.ToString() + _msg + "\r\n");
-                            break;
-
-                        case GPS_HEADER:
-
-                            msg = (header.ToString() + _msg + "\r\n");
-                            break;
-
-                        case NTRIP_HEADER:
-
-                            msg = (header.ToString() + _msg + "\r\n"); ;
-
-                            break;
-
-                        case IMU_HEADER:
-
-                            msg = (header.ToString() + _msg + "\r\n");
-
-                            break;
-                        case RESET_HEADER:
-
-                            msg = (header.ToString() + _msg + "\r\n");
-
-                            break;
-                        case SYSTEM_HEADER:
-
-                            msg = (header.ToString() + _msg + "\r\n");
 
                             break;
 
@@ -259,29 +192,29 @@ namespace OpenGrade
 
                     }
 
+                    if (_module == epGradeControl)
+                    {
+                        toGradeControlMsg = msg;
+                    }
+                    else if (_module == epAntennaModule)
+                    {
+                        toAntennaMsg = msg;
+                    }
+
                     // Get packet as byte array
                     byte[] byteData = Encoding.ASCII.GetBytes(msg);
 
                     if (byteData.Length != 0)
-
-                        // Send packet to the zero
                         sendSocket.BeginSendTo(byteData, 0, byteData.Length, SocketFlags.None, _module, new AsyncCallback(SendData), null);
+
                 }
                 catch (Exception e)
                 {
                     WriteErrorLog("Sending UDP Message" + e.ToString());
 
+                    //MessageBox.Show("Send Error: " + e.Message, "UDP Client", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-
-
-
-
-
-
-
-
         }
 
         public void SendData(IAsyncResult asyncResult)
@@ -304,7 +237,7 @@ namespace OpenGrade
             {
                 // Initialise the IPEndPoint for the client
                 EndPoint epSender = new IPEndPoint(IPAddress.Any, 0);
-            
+
                 // Receive all data
                 int msgLen = recvSocket.EndReceiveFrom(asyncResult, ref epSender);
 
@@ -315,8 +248,6 @@ namespace OpenGrade
                 recvSocket.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epSender, new AsyncCallback(ReceiveData), epSender);
 
                 string text = Encoding.ASCII.GetString(localMsg);
-                
-
 
                 // Update status through a delegate
                 Invoke(updateRecvMessageDelegate, new object[] { text });
@@ -324,25 +255,38 @@ namespace OpenGrade
             catch (Exception e)
             {
                 WriteErrorLog("UDP Recv data " + e.ToString());
+                //Console.WriteLine("UDP Recv data " + e.ToString());
                 //MessageBox.Show("ReceiveData Error: " + e.Message, "UDP Server", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // parse through Messages recieved
         private void UpdateRecvMessage(string recvd)
-        {     
+        {
             string[] words = recvd.Split(',');
-            int temp = words.Count();
-            int tempHeader;
+            int dataCount = words.Count();
+            int recvHeader;
             //int.TryParse(words[0], out temp);
 
-            int.TryParse(words[0], out tempHeader);
-            
-            switch (tempHeader) {
+            int.TryParse(words[0], out recvHeader);
+
+            if (recvHeader == DATA_HEADER || (recvHeader == SYSTEM_HEADER && words[1] == "255"))
+            {
+                fromGradeControlMsg = recvd;
+            }
+            else if (recvHeader == WIFI_HEADER || recvHeader == IMU_HEADER || (recvHeader == SYSTEM_HEADER && words[1] == "155"))
+            {
+                fromAntennaMsg = recvd;
+            }
+
+
+            switch (recvHeader)
+            {
 
                 case DATA_HEADER:
-                    if (temp < 5)
+                    if (dataCount < 5)
                     {
+                        //Console.WriteLine(recvd + " " + words[0] + " " + words[1] + " " + words[2] + " " + words[3]);
                         gradeControlTimeout = 0;
                         ledGradeControl.BackColor = Color.Lime;
                         voltageBar.BarColorSolid = Color.RoyalBlue;
@@ -352,8 +296,10 @@ namespace OpenGrade
                         double.TryParse(words[2], out mc.voltage);
                         double.TryParse(words[3], out mc.voltage2);
 
+                        //Console.WriteLine(mc.autoState + " " + mc.voltage + " " + mc.voltage2);
+
                     }
-                    else if ((temp > 5))
+                    else if ((dataCount > 5))
                     {
                         gradeControlTimeout = 0;
                         ledGradeControl.BackColor = Color.Lime;
@@ -374,10 +320,24 @@ namespace OpenGrade
                     antennaModuleTimeout = 0;
                     if (antennaModuleTimeout < 50) ledAntenna.BackColor = Color.Lime;
                     else ledAntenna.BackColor = Color.Orange;
-                    pn.rawBuffer = recvd.Remove(0, 6);  // Remove the GPS, Header
-                    recvSentenceSettings = pn.rawBuffer;
+                    pn.rawBuffer += recvd.Remove(0, 6);  // Remove "GPS_HEADER," and add to the raw buffer
+                    //recvSentenceSettings = pn.rawBuffer;
+                    recvSentenceSettings = recvd.Remove(0, 6);
+                    //Console.WriteLine(">>" + pn.rawBuffer + "<<");
 
+                    string[] word = recvSentenceSettings.Split(',');
 
+                    /*if (pn.rawBuffer.Length < 100)
+                    {
+                        recvNmeaMsgs = recvSentenceSettings;
+                    }
+                    else
+                    {
+                        //mf.recvNmeaMsgs += "\r\n";
+                        recvNmeaMsgs += recvSentenceSettings;
+                    }*/
+                    recvNmeaMsgs = pn.rawBuffer;
+                    //Console.WriteLine(">" + recvNmeaMsgs + "<");
 
                     break;
 
@@ -396,7 +356,7 @@ namespace OpenGrade
 
                 case SYSTEM_HEADER:
                     int mod;
-                    
+
                     int.TryParse(words[1], out mod);
 
                     if (mod == 255)
@@ -413,23 +373,25 @@ namespace OpenGrade
                     }
                     //SendUDPMessage(FormGPS.SETTINGS_HEADER, mf.epGradeControl);
                     break;
-                    
+
 
                 case WIFI_HEADER:
 
-                    for (int i = 1; i < temp-1; ++i)
+                    //Console.WriteLine("WIFI HEADER");
+                    for (int i = 1; i < dataCount; ++i)
                     {
-                      SSID[i-1] = words[i]; 
-                      isWifidone = true;
-                    } 
+                        SSID[i - 1] = words[i];
+                        //Console.WriteLine(SSID[i - 1]);
+                        isWifidone = true;
+                    }
                     break;
 
-                    
+
                 default:
                     break;
-                    
+
 
             }
-        }  
+        }
     }
 }

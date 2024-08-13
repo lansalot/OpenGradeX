@@ -34,17 +34,19 @@ namespace OpenGrade
             lblStatus.Text = mf.Status;
             lblHDOP.Text = mf.HDOP;            
 
-            tboxSerialFromGradeControl.Text = mf.mc.serialRecvGradeControlStr;           
+            tboxSerialFromGradeControl.Text = mf.mc.serialRecvGradeControlStr;
 
-            
+
+            //tboxNMEASerial.Text = mf.recvSentenceSettings;
+            tboxNMEASerial.Text = mf.recvNmeaMsgs;
             //tboxNMEASerial.Text = mf.pn.rawBuffer;
 
-           
-            
-             
-
+            tboxSerialToAutoSteer.Text = mf.toAntennaMsg;
+            tboxSerialFromAutoSteer.Text = mf.fromAntennaMsg;
+            txtBoxSendGradeControl.Text = mf.toGradeControlMsg;
+            tboxSerialFromGradeControl.Text = mf.fromGradeControlMsg;
 
         }
-        
+
     }
 }

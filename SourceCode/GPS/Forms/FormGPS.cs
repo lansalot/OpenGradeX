@@ -1288,11 +1288,6 @@ namespace OpenGrade
         }
 
 
-        private void toolsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSurface_Click_1(object sender, EventArgs e)
         {
 

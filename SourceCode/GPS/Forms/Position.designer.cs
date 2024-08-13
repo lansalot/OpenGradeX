@@ -11,7 +11,12 @@ namespace OpenGrade
     {
         public  double toLatitude;
         public  double toLongitude;
-        public string recvSentenceSettings = "InitalSetting";
+        public string recvSentenceSettings = "No Data";
+        public string recvNmeaMsgs = "No Data";
+        public string toAntennaMsg = "No Data";
+        public string fromAntennaMsg = "No Data";
+        public string toGradeControlMsg = "No Data";
+        public string fromGradeControlMsg = "No Data";
 
         //very first fix to setup grid etc
         public bool isFirstFixPositionSet = false, isGPSPositionInitialized = false;

@@ -1253,9 +1253,9 @@ namespace OpenGrade
                 else lblFix.BackColor = Color.Tomato;       
                 
                 if (FixQuality == "RTK fix" || FixQuality == "Flt RTK")
-                {  
-                    if (!isNTRIP_Connected) ledRadio.BackColor = Color.Lime;                    
-                }               
+                {
+                    if (!isNTRIP_Connected) ledRadio.BackColor = Color.Lime;
+                }
                 else ledRadio.BackColor = Color.Black;
 
                 
@@ -1263,7 +1263,7 @@ namespace OpenGrade
                 lblRoll.Text = RollInDegrees;
                 lblGyroHeading.Text = GyroInDegrees;
                 lblPitch.Text = PitchInDegrees;
-                lblGPSHeading.Text = GPSHeading;                     
+                lblGPSHeading.Text = GPSHeading;
 
                 //up in the menu a few pieces of info
                 if (isJobStarted)
@@ -1278,7 +1278,8 @@ namespace OpenGrade
                 }
 
                 lblZone.Text = pn.zone.ToString();
-                tboxSentence.Text = recvSentenceSettings;
+                //tboxSentence.Text = recvSentenceSettings;
+                tboxSentence.Text = recvNmeaMsgs;
                 
                 // }
 
@@ -1531,7 +1532,7 @@ namespace OpenGrade
                     lblNorthing.Text = gStr.gsNoGPS;
                     lblZone.Text = "-";
                     tboxSentence.Text = gStr.gsNoSentenceData;
-                    
+
                 }
                 else stripOnlineGPS.Value = 100;
                                

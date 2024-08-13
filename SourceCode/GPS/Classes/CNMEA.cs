@@ -76,7 +76,7 @@ namespace OpenGrade
         public int fixQuality;
         public int lastFixQuality = -1;
         public int satellitesTracked;
-        public string status = "q";
+        public string status = "A";
         public DateTime utcDateTime;
 
         public char hemisphere = 'N';
@@ -131,18 +131,19 @@ namespace OpenGrade
                 words = nextNMEASentence.Split(',');
                 if (words.Length < 9) return;
 
-                if (words[0] == "$GPGGA" | words[0] == "$GNGGA")
+                if (words[0] == "$GPGGA" || words[0] == "$GNGGA" || words[0] == "$GNGNS" || words[0] == "$GPGNS")
                 {
                     ParseGGA();
+                    //Console.WriteLine("parsed GGA");
                     //mf.TimedMessageBox(100, "GGA", "n5");
-
                 }
-                if (words[0] == "$GPVTG" | words[0] == "$GNVTG")
+                if (words[0] == "$GPVTG" || words[0] == "$GNVTG")
                 {
-
                     ParseVTG();
+                    //Console.WriteLine("parsed VTG");
                     //mf.TimedMessageBox(100, "VTG", "n5");
                 }
+                //Console.WriteLine(mf.recvNmeaMsgs);
             }// while still data
 
 
@@ -186,14 +187,31 @@ namespace OpenGrade
         //The indivdual sentence parsing
         private void ParseGGA()
         {
-            //$GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M ,  ,*47
-            //   0     1      2      3    4      5 6  7  8   9    10 11  12 13  14
+            //    0       1           2      3      4        5   6    7   8      9         10      11  12  13
+            // $GNGNS,155116.90,4919.0723203,N,09803.9907744,W,RRRNNN,17,0.68,278.355  ,-26.155  ,0.9,0175,V * 18
+            // $GNGGA,155116.90,4919.0723203,N,09803.9907744,W,4     ,12,0.68,278.355,M,-26.155,M,0.9,0175   * 54
+            //    0       1           2      3      4        5   6    7   8      9    10   11   12 13    14
             //        Time      Lat       Lon  
 
             //is the sentence GGA
             if (!String.IsNullOrEmpty(words[2]) & !String.IsNullOrEmpty(words[3])
                 & !String.IsNullOrEmpty(words[4]) & !String.IsNullOrEmpty(words[5]))
             {
+                // translate GNS sentence to GGA for parsing
+                if (words[0] == "$GNGNS" || words[0] == "$GPGNS")
+                {
+                    // fix quality
+                    string t = "0";
+                    if (words[6].Contains("R")) t = "4";    // RTK
+                    if (words[6].Contains("F")) t = "5";    // Float
+                    if (words[6].Contains("D")) t = "2";    // DGPS/WAAS
+                    if (words[6].Contains("A")) t = "1";    // No correction
+                    words[6] = t;
+
+                    // age of correction
+                    words[13] = words[11];
+                }
+
                 double temp;
                 //get latitude and convert to decimal degrees
                 double.TryParse(words[2].Substring(0, 2), NumberStyles.Float, CultureInfo.InvariantCulture, out latitude);
@@ -239,7 +257,7 @@ namespace OpenGrade
                 }
 
                 //mf.TimedMessageBox(2000, "VTG", speed.ToString("n3"));
-                updatedGGA = true;
+                if (fixQuality == 4 || fixQuality == 3) updatedGGA = true;  // only use RTK or PPS (simulator) fix quality
                 mf.recvCounter = 0;
                 lastFixQuality = fixQuality;
 

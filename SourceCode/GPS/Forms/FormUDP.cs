@@ -33,7 +33,7 @@ namespace OpenGrade
             
             for(int i = 0; i < mf.SSID.Length; i++)
             {
-                mf.SSID[i] = "-";
+                //mf.SSID[i] = "-";
             }
 
             Close();
@@ -139,6 +139,8 @@ namespace OpenGrade
 
             mf.ssidName = choiceWiFi.Text;
             mf.ssidPass = choicePassword.Text;
+
+            Console.WriteLine(mf.ssidName + ":" + mf.ssidPass);
 
             mf.SendUDPMessage(FormGPS.WIFI_HEADER, mf.epAntennaModule, 2);
 

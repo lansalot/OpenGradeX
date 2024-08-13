@@ -15,7 +15,7 @@ namespace OpenGrade
         // PGN - 32762 - 127.250
         public static int numGradeControlDataItems = 5;
         public byte[] GradeControlData = new byte[numGradeControlDataItems];
-        public int gcHeaderHi, gcHeaderLo = 1, gcDeltaDir = 2, gcCutDelta = 3, gcisAutoActive = 4;                                
+        public int gcHeaderHi = 0, gcHeaderLo = 1, gcDeltaDir = 2, gcCutDelta = 3, gcisAutoActive = 4;                                
 
         //info coming from Grade Control Mod
         public int autoState = 0, bladeOffset = 0; //public byte autoState = 0;        
@@ -25,7 +25,7 @@ namespace OpenGrade
         // PGN - 32760 - 127.248
         public static int numGradeControlSettingsItems = 8;
         public byte[] gradeControlSettings = new byte[numGradeControlSettingsItems];
-        public int gsHeaderHi, gsHeaderLo = 1, gsKpGain = 2, gsKiGain = 3, gsKdGain = 4, gsRetDeadband = 5, gsExtDeadband = 6, gsValveType = 7;
+        public int gsHeaderHi = 0, gsHeaderLo = 1, gsKpGain = 2, gsKiGain = 3, gsKdGain = 4, gsRetDeadband = 5, gsExtDeadband = 6, gsValveType = 7;
 
         //AutoSteer ------------------------------------------------------------------------------------------------
         public string serialRecvAutoSteerStr;
