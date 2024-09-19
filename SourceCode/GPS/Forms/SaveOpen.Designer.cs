@@ -46,19 +46,25 @@ namespace OpenGrade
                 {
                     writer.WriteLine("Version," + Application.ProductVersion.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("Wheelbase," + Properties.Vehicle.Default.setVehicle_wheelbase.ToString(CultureInfo.InvariantCulture));
+
+                    writer.WriteLine("ToolWidth," + Properties.Vehicle.Default.setVehicle_toolWidth.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("AntennaHeight," + Properties.Vehicle.Default.setVehicle_antennaHeight.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("PlowHeight," + Properties.Vehicle.Default.setVehicle_plowHeight.ToString(CultureInfo.InvariantCulture));
 
-                    writer.WriteLine("MaxDitchCut," + Properties.Vehicle.Default.setVehicle_maxDitchCut.ToString(CultureInfo.InvariantCulture));
-                    writer.WriteLine("MaxTileCut," + Properties.Vehicle.Default.setVehicle_maxTileCut.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("MinTileCover," + Properties.Vehicle.Default.setVehicle_minTileCover.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine("MaxTileCut," + Properties.Vehicle.Default.setVehicle_maxTileCut.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine("MinDitchCut," + Properties.Vehicle.Default.setVehicle_minDitchCut.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine("MaxDitchCut," + Properties.Vehicle.Default.setVehicle_maxDitchCut.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine("MinimumSlope," + Properties.Vehicle.Default.setVehicle_minSlope.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine("MinimumShore," + Properties.Vehicle.Default.setVehicle_minShoreSlope.ToString(CultureInfo.InvariantCulture));
 
+                    writer.WriteLine("RetractDeadband," + Properties.Settings.Default.set_RetDeadband.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine("ValveType," + Properties.Settings.Default.set_ValveType.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine("ValveName," + Properties.Settings.Default.set_ValveName.ToString(CultureInfo.InvariantCulture));
+                    writer.WriteLine("ExtendDeadband," + Properties.Settings.Default.set_ExtDeadband.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("KpGain," + Properties.Settings.Default.set_KpGain.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("KiGain," + Properties.Settings.Default.set_KiGain.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("KdGain," + Properties.Settings.Default.set_KdGain.ToString(CultureInfo.InvariantCulture));
-
-                    writer.WriteLine("ToolWidth," + Properties.Vehicle.Default.setVehicle_toolWidth.ToString(CultureInfo.InvariantCulture));
-                    writer.WriteLine("MinimumSlope," + Properties.Vehicle.Default.setVehicle_minSlope.ToString(CultureInfo.InvariantCulture));
 
                     writer.WriteLine("IsMetric," + Properties.Settings.Default.setMenu_isMetric.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("IsGridOn," + Properties.Settings.Default.setMenu_isGridOn.ToString(CultureInfo.InvariantCulture));
@@ -90,15 +96,15 @@ namespace OpenGrade
                     writer.WriteLine("MaxSteerAngle," + Properties.Vehicle.Default.setVehicle_maxSteerAngle.ToString(CultureInfo.InvariantCulture));
                     writer.WriteLine("MaxAngularVelocity," + Properties.Vehicle.Default.setVehicle_maxAngularVelocity.ToString(CultureInfo.InvariantCulture));
 
-                    writer.WriteLine("Empty," + "10");
-                    writer.WriteLine("Empty," + "10");
-                    writer.WriteLine("Empty," + "10");
-                    writer.WriteLine("Empty," + "10");
-                    writer.WriteLine("Empty," + "10");
-                    writer.WriteLine("Empty," + "10");
-                    writer.WriteLine("Empty," + "10");
-                    writer.WriteLine("Empty," + "10");
-                    writer.WriteLine("Empty," + "10");
+                    writer.WriteLine("Empty," + "1");
+                    writer.WriteLine("Empty," + "2");
+                    writer.WriteLine("Empty," + "3");
+                    writer.WriteLine("Empty," + "4");
+                    writer.WriteLine("Empty," + "5");
+                    writer.WriteLine("Empty," + "6");
+                    writer.WriteLine("Empty," + "7");
+                    writer.WriteLine("Empty," + "8");
+                    writer.WriteLine("Empty," + "9");
                     writer.WriteLine("Empty," + "10");
                 }
 
@@ -163,101 +169,68 @@ namespace OpenGrade
                         //    return;
                         //}
 
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_wheelbase = double.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_plowHeight = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_wheelbase = double.Parse(words[1], CultureInfo.InvariantCulture);
+
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_toolWidth = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_antennaHeight = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_plowHeight = double.Parse(words[1], CultureInfo.InvariantCulture);
 
                         // Black Ace Industries
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_maxDitchCut = double.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_maxTileCut = double.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_minTileCover = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_minTileCover = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_maxTileCut = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_minDitchCut = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_maxDitchCut = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_minSlope = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_minShoreSlope = double.Parse(words[1], CultureInfo.InvariantCulture);
 
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.set_KpGain = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.set_KiGain = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.set_KdGain = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.set_RetDeadband = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.set_ValveType = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.set_ValveName = words[1];
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.set_ExtDeadband = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.set_KpGain = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.set_KiGain = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.set_KdGain = byte.Parse(words[1], CultureInfo.InvariantCulture);
 
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setMenu_isMetric = bool.Parse(words[1]);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setMenu_isGridOn = bool.Parse(words[1]);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setMenu_isLightbarOn = bool.Parse(words[1]);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setMenu_isPureOn = bool.Parse(words[1]);
 
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setF_FieldColorR = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setF_FieldColorG = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setF_FieldColorB = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setF_SectionColorR = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setF_SectionColorG = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setF_SectionColorB = byte.Parse(words[1], CultureInfo.InvariantCulture);
 
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setIMU_pitchZero = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setIMU_rollZero = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setMenu_isLogNMEA = bool.Parse(words[1]);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setF_minFixStep = double.Parse(words[1], CultureInfo.InvariantCulture);
 
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setAS_Kp = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setAS_Ki = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setAS_Kd = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setAS_Ko = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setAS_steerAngleOffset = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setAS_minSteerPWM = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Settings.Default.setAS_maxIntegral = byte.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine();words = line.Split(','); Properties.Settings.Default.setAS_countsPerDegree = byte.Parse(words[1], CultureInfo.InvariantCulture);
 
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_antennaHeight = double.Parse(words[1], CultureInfo.InvariantCulture);
-                        
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_toolWidth = double.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_minSlope = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_goalPointLookAhead = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_maxSteerAngle = double.Parse(words[1], CultureInfo.InvariantCulture);
+                        line = reader.ReadLine(); words = line.Split(','); Properties.Vehicle.Default.setVehicle_maxAngularVelocity = double.Parse(words[1], CultureInfo.InvariantCulture);
 
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setMenu_isMetric = bool.Parse(words[1]);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setMenu_isGridOn = bool.Parse(words[1]);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setMenu_isLightbarOn = bool.Parse(words[1]);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setMenu_isPureOn = bool.Parse(words[1]);
-
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setF_FieldColorR = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setF_FieldColorG = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setF_FieldColorB = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setF_SectionColorR = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setF_SectionColorG = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setF_SectionColorB = byte.Parse(words[1], CultureInfo.InvariantCulture);
-
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setIMU_pitchZero = double.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setIMU_rollZero = double.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setMenu_isLogNMEA = bool.Parse(words[1]);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setF_minFixStep = double.Parse(words[1], CultureInfo.InvariantCulture);
-
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setAS_Kp = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setAS_Ki = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setAS_Kd = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setAS_Ko = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setAS_steerAngleOffset = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setAS_minSteerPWM = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setAS_maxIntegral = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine();words = line.Split(',');
-                        Properties.Settings.Default.setAS_countsPerDegree = byte.Parse(words[1], CultureInfo.InvariantCulture);
-                        
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_maxSteerAngle = double.Parse(words[1], CultureInfo.InvariantCulture);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Vehicle.Default.setVehicle_maxAngularVelocity = double.Parse(words[1], CultureInfo.InvariantCulture);
-
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
-                        line = reader.ReadLine();
+                        line = reader.ReadLine(); // 1
+                        line = reader.ReadLine(); // 2
+                        line = reader.ReadLine(); // 3
+                        line = reader.ReadLine(); // 4
+                        line = reader.ReadLine(); // 5
+                        line = reader.ReadLine(); // 6
+                        line = reader.ReadLine(); // 7
+                        line = reader.ReadLine(); // 8
+                        line = reader.ReadLine(); // 9
+                        line = reader.ReadLine(); // 10
 
                         //fill in the current variables with restored data
                         vehiclefileName = Path.GetFileNameWithoutExtension(ofd.FileName) + " - ";
@@ -267,24 +240,28 @@ namespace OpenGrade
                         Properties.Vehicle.Default.Save();
 
                         //from settings grab the vehicle specifics
-                        vehicle.antennaHeight = Properties.Vehicle.Default.setVehicle_antennaHeight;
                         vehicle.wheelbase = Properties.Vehicle.Default.setVehicle_wheelbase;
+
+                        vehicle.toolWidth = Properties.Vehicle.Default.setVehicle_toolWidth;
+                        vehicle.antennaHeight = Properties.Vehicle.Default.setVehicle_antennaHeight;
                         vehicle.plowHeight = Properties.Vehicle.Default.setVehicle_plowHeight;
 
                         //Black Ace Industries
-                        vehicle.maxDitchCut = Properties.Vehicle.Default.setVehicle_maxDitchCut;
-                        vehicle.maxTileCut = Properties.Vehicle.Default.setVehicle_maxTileCut;
                         vehicle.minTileCover = Properties.Vehicle.Default.setVehicle_minTileCover;
-                        
-                        
+                        vehicle.maxTileCut = Properties.Vehicle.Default.setVehicle_maxTileCut;
+                        vehicle.minDitchCut = Properties.Vehicle.Default.setVehicle_minDitchCut;
+                        vehicle.maxDitchCut = Properties.Vehicle.Default.setVehicle_maxDitchCut;
+                        vehicle.minSlope = Properties.Vehicle.Default.setVehicle_minSlope;
+                        vehicle.minShoreSlope = Properties.Vehicle.Default.setVehicle_minShoreSlope;
+
+
+                        vehicle.retDeadband = Properties.Settings.Default.set_RetDeadband;
+                        vehicle.valveType = Properties.Settings.Default.set_ValveType;
+                        Console.WriteLine(vehicle.valveType + " " + Properties.Settings.Default.set_ValveName);
+                        vehicle.extDeadband = Properties.Settings.Default.set_ExtDeadband;
                         vehicle.KpGain = Properties.Settings.Default.set_KpGain;
                         vehicle.KiGain = Properties.Settings.Default.set_KiGain;  
                         vehicle.KdGain = Properties.Settings.Default.set_KdGain;
-
-                        vehicle.retDeadband = Properties.Settings.Default.set_RetDeadband;
-                        vehicle.extDeadband = Properties.Settings.Default.set_ExtDeadband;
-                        vehicle.valveType = Properties.Settings.Default.set_ValveType;
-
 
                         mc.gradeControlSettings[mc.gsKpGain] = Properties.Settings.Default.set_KpGain;
                         mc.gradeControlSettings[mc.gsKiGain] = Properties.Settings.Default.set_KiGain;
@@ -293,11 +270,6 @@ namespace OpenGrade
                         mc.gradeControlSettings[mc.gsExtDeadband] = Properties.Settings.Default.set_ExtDeadband;
                         mc.gradeControlSettings[mc.gsValveType] = Properties.Settings.Default.set_ValveType;
 
-
-
-                        vehicle.toolWidth = Properties.Vehicle.Default.setVehicle_toolWidth;
-                        vehicle.minSlope = Properties.Vehicle.Default.setVehicle_minSlope;
-                        vehicle.minShoreSlope = Properties.Vehicle.Default.setVehicle_minShoreSlope;
 
                         vehicle.maxAngularVelocity = Properties.Vehicle.Default.setVehicle_maxAngularVelocity;
                         vehicle.maxSteerAngle = Properties.Vehicle.Default.setVehicle_maxSteerAngle;

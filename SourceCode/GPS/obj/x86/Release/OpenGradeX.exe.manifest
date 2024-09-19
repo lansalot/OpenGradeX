@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenGradeX.exe" size="1539072">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenGradeX.exe" size="1538048">
       <assemblyIdentity name="OpenGradeX" version="1.4.3.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qS5/LaEkEBjFg+Vo7GIFF/TvzWW74PKqOCHvSwBZQec=</dsig:DigestValue>
+        <dsig:DigestValue>I+s4DZMayTxg6pP3C+br+mJOQPqQRQuGLLDCv2npY58=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

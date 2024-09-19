@@ -148,7 +148,7 @@ namespace OpenGrade
             sbGGA.Append(latNMEA.ToString(CultureInfo.InvariantCulture)).Append(',').Append(NS).Append(',');
             sbGGA.Append(Math.Abs(longNMEA).ToString(CultureInfo.InvariantCulture)).Append(',').Append(EW).Append(',');
             sbGGA.Append(fixQuality.ToString(CultureInfo.InvariantCulture)).Append(',').Append(sats.ToString(CultureInfo.InvariantCulture)).Append(',').Append(HDOP.ToString(CultureInfo.InvariantCulture)).Append(',').Append(altitude.ToString(CultureInfo.InvariantCulture));
-            sbGGA.Append(",M,46.9,M,,,*");
+            sbGGA.Append(",M,46.9,M,2.5,,*");
 
             CalculateChecksum(sbGGA.ToString());
             sbGGA.Append(sumStr);

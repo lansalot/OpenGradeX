@@ -27,12 +27,15 @@ namespace OpenGrade
             lblLatitude.Text = mf.Latitude;
             lblLongitude.Text = mf.Longitude;
             lblAltitude.Text = mf.Altitude;
+            
+            
 
             //other sat and GPS info
             lblFixQuality.Text = mf.FixQuality;
             lblSatsTracked.Text = mf.SatsTracked;
             lblStatus.Text = mf.Status;
             lblHDOP.Text = mf.HDOP;            
+            
 
             tboxSerialFromGradeControl.Text = mf.mc.serialRecvGradeControlStr;
 

@@ -1311,6 +1311,7 @@ namespace OpenGrade
                 lblHeading.Text = Heading;
                 btnABLine.Text = PassNumber;
                 sqrCutLine.Text = PureSteerAngle;
+                lblAge.Text = AgeDiff;
 
                
                 voltageBar.Value = ((int)(mc.voltage * 100) +12) ;
